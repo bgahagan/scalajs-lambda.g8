@@ -12,18 +12,21 @@ scalacOptions ++= Seq(
     "-feature",
     // Give more information on type erasure warning
     "-unchecked",
-    // enable sjs 1.0 defaults
-    "-P:scalajs:sjsDefinedByDefault"
+    // Enable warnings and lint
+    "-Ywarn-unused",
+    "-Xlint",
 ) 
 version in webpack := "4.16.1"
 useYarn := true
 webpackConfigFile := Some(baseDirectory.value / "webpack.config.js")
 //version in startWebpackDevServer := "3.1.4"
-emitSourceMaps := false
+
+// Optional: Disable source maps to speed up compile times
+//scalaJSLinkerConfig ~= { _.withSourceMap(false) }
 
 
 // Incluce type defintion for aws lambda handlers
-libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.3.3"
+libraryDependencies += "net.exoego" %%% "aws-lambda-scalajs-facade" % "0.6.0"
 
 // Optional: Include the AWS SDK as a dep
 /*
@@ -38,7 +41,7 @@ npmDependencies in Compile += "aws-sdk" -> awsSdkVersion
 //libraryDependencies += "net.exoego" %%% "scala-js-nodejs-v12" % "0.9.1"
 
 // Include scalatest
-libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % "test"
+libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.1" % "test"
 
 // Package lambda as a zip. Use `universal:packageBin` to create the zip
 topLevelDirectory := None

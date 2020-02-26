@@ -2,9 +2,13 @@
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating an AWS Lambda using [Scala.js](http://www.scala-js.org/).
 
+```
+sbt new bgahagan/scalajs-lambda.g8
+```
+
 # Development
 
-Watch for changes and re-compile:
+Watch for changes and re-compile (from sbt):
 ```
 > ~fastOptJS::webpack
 ```
@@ -25,9 +29,9 @@ The handler name will be `${project-name}-fastopt-bundle.handler`.
 
 # Deploy
 
-Package the lambda:
+Package the lambda (from sbt):
 ```
-> lambda/universal:packageBin
+> universal:packageBin
 ```
 
 Deploy the resulting zip in `target/universal` to AWS Lambda. The handler name will be `${project-name}.handler`.
