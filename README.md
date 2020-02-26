@@ -1,10 +1,16 @@
-# Scala.js Lambda Template
+# Scala.js AWS Lambda Template
 
 A [Giter8](http://www.foundweekends.org/giter8/) template for creating an AWS Lambda using [Scala.js](http://www.scala-js.org/).
 
 ```
 sbt new bgahagan/scalajs-lambda.g8
 ```
+
+## Features
+
+* Scala.js 1.0 Support
+* Uses [sbt-scalajs-bundler](https://scalacenter.github.io/scalajs-bundler/) to manage npm dependencies (for example the AWS SDK)
+* Uses [sbt-native-packager](https://www.scala-sbt.org/sbt-native-packager/) to bundle lambda function for deployment
 
 # Development
 
